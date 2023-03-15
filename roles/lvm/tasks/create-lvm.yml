@@ -1,0 +1,37 @@
+---
+
+### Create Logical Volume Management
+- name: Install LVM packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - lvm2
+
+- name: Create physical volumes
+  become: true
+  command: "pvcreate {{ item }}"
+  with_items:
+    - /dev/vdb1
+
+- name: Create volume group
+  become: true
+  command: "vgcreate vgdata {{ item }}"
+  with_items:
+    - /dev/vdb1
+
+- name: Create logical volumes
+  become: true
+  command: "lvcreate -L 4G -n lv_data vgdata"
+
+- name: Format logical volumes
+  become: true
+  command: "mkfs.ext4 /dev/vgdata/lv_data"
+
+- name: Mount logical volumes
+  become: true
+  mount:
+    path: /data
+    src: /dev/vgdata/lv_data
+    fstype: ext4
+    state: mounted

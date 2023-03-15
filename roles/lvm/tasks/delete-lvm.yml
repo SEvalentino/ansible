@@ -1,0 +1,22 @@
+---
+
+### Delete LVM
+- name: Unmount data
+  become: true
+  mount:
+    path: /data
+    state: unmounted
+
+- name: Remove LVM
+  become: true
+  lvol:
+    vg: vgdata
+    lv: lv_data
+    force: yes
+
+- name: Remove Volume group
+  become: true
+  lvg:
+    vg: vgdata
+    state: absent
+    force: yes

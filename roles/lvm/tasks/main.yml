@@ -1,0 +1,9 @@
+---
+
+### Create LVM
+- name: Create lvm volume(s)
+  import_tasks: create-lvm.yml
+
+### Delete LVM
+#- name: Delete lvm volume(s)
+#  import_tasks: delete-lvm.yml
