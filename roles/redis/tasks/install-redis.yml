@@ -1,0 +1,11 @@
+- name: Update yum cache
+  become: true
+  yum: 
+    update_cache: yes
+
+- name: Install Redis
+  become: true
+  yum: 
+    name: redis
+    state: present
+    shell: "nohup redis-server > output.log &"

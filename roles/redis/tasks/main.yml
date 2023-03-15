@@ -1,0 +1,5 @@
+---
+
+### Create LVM
+- name: Create lvm volume(s)
+  import_tasks: install-redis.yml

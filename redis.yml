@@ -1,0 +1,7 @@
+---
+- name: Initiate Provisioning Servers
+  hosts: lvm
+#  become: true
+
+  roles:
+    - redis
