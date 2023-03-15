@@ -10,13 +10,13 @@
 - name: Remove LVM
   become: true
   lvol:
-    vg: vgdata
+    vg: vg_data
     lv: lv_data
     force: yes
 
 - name: Remove Volume group
   become: true
   lvg:
-    vg: vgdata
+    vg: vg_data
     state: absent
     force: yes

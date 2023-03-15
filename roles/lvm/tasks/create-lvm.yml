@@ -16,22 +16,22 @@
 
 - name: Create volume group
   become: true
-  command: "vgcreate vgdata {{ item }}"
+  command: "vgcreate vg_data {{ item }}"
   with_items:
     - /dev/vdb1
 
 - name: Create logical volumes
   become: true
-  command: "lvcreate -L 4G -n lv_data vgdata"
+  command: "lvcreate -L 4G -n lv_data vg_data"
 
 - name: Format logical volumes
   become: true
-  command: "mkfs.ext4 /dev/vgdata/lv_data"
+  command: "mkfs.ext4 /dev/vg_data/lv_data"
 
 - name: Mount logical volumes
   become: true
   mount:
     path: /data
-    src: /dev/vgdata/lv_data
+    src: /dev/vg_data/lv_data
     fstype: ext4
     state: mounted
