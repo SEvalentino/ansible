@@ -8,4 +8,7 @@
   yum: 
     name: redis
     state: present
-    shell: "nohup redis-server > output.log &"
+
+- name: start redis-server
+  shell: "nohup redis-server > output.log &"
+  

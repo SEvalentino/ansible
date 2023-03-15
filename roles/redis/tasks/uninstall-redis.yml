@@ -1,0 +1,12 @@
+- name: Stop redis
+  become: true
+  service: 
+    name: redis
+    state: stopped
+
+- name: Uninstall Redis
+  become: true
+  yum: 
+    name: redis
+    state: absent
+

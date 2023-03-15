@@ -1,5 +1,9 @@
 ---
 
-### Create LVM
-- name: Create lvm volume(s)
+### Install Redis
+- name: Install Redis
   import_tasks: install-redis.yml
+
+### Uninstall Redis
+#- name: Uninstall Redis
+#  import_tasks: uninstall-redis.yml
