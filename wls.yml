@@ -1,0 +1,8 @@
+---
+
+- name: Initiate Provisioning Servers
+  hosts: source
+#  become: true
+
+  roles:
+    - wls
