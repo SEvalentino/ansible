@@ -1,7 +1,7 @@
 ---
 
 # Run command
-- name: Change Configuration
-  import_tasks: 
-    - clearlog.yml
-    - changeip.yml
+- name: Clear log
+  import_tasks: clearlog.yml
+- name: Change IP
+  import_tasks: changeip.yml
