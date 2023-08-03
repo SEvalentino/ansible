@@ -1,0 +1,41 @@
+- name: Change IP config.xml
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/config/config.xml    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '<listen-address>10.10.36.22</listen-address>'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '<listen-address>10.10.36.21</listen-address>'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti
+
+- name: Change IP Replicas in AdminServer
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/AdminServer/data/ldap/conf/replicas.prop    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '10.10.36.22'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '10.10.36.21'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti
+
+- name: Change IP in config.xml
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/domain_bak/config_prev/config.xml    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '10.10.36.22'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '10.10.36.21'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti
+
+- name: Change IP statup PrismaGatewaySer ver.url
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/PrismaGatewayServer/data/nodemanager/startup.properties    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '10.10.36.22'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '10.10.36.21'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti
+
+- name: Change IP PrismaGatewayServer.url
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/PrismaGatewayServer/data/nodemanager/PrismaGatewayServer.url    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '10.10.36.22'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '10.10.36.21'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti
+
+- name: Change IP statup PrimeCashApp01
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/PrimeCashApp01/data/nodemanager/startup.properties    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '10.10.36.22'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '10.10.36.21'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti
+
+- name: Change IP PrimeCashApp01.url
+  replace:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/PrimeCashApp01/data/nodemanager/PrimeCashApp01.url    # Ganti dengan jalur lengkap file 1 yang ingin Anda ganti teksnya
+    regexp: '10.10.36.22'         # Ganti dengan pola teks lama yang ingin Anda ganti
+    replace: '10.10.36.21'        # Ganti dengan teks baru yang ingin Anda gunakan sebagai pengganti

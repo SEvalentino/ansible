@@ -1,0 +1,51 @@
+- name: Membuat folder aprisma
+  file:
+    path: /aprisma/aprisma
+    state: directory
+    mode: "0755"
+
+- name: Menghapus log nohup
+  file:
+    path: "{{ item }}" 
+    state: absent
+  with_items:
+    - /aprisma/wls14/user_projects/domains/val-domain/bin/nohup.out
+
+- name: Menghapus log oraInverntory
+  file:
+    path: /aprisma/wls14/oraInventory/{{ item }}
+    state: absent
+  with_items:
+    - logs
+
+- name: Menghapus cache server AdminServer
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/AdminServer/{{ item }} 
+    state: absent
+  with_items:
+    - cache
+    - data/store
+    - logs
+    - tmp
+
+- name: Menghapus cache server PrimeCashApp01
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/PrimeCashApp01/{{ item }} 
+    state: absent
+  with_items:
+    - cache
+    - data/store
+    - data/ldap/log
+    - logs
+    - tmp  
+
+- name: Menghapus cache server PrismaGatewayServer
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/PrismaGatewayServer/{{ item }} 
+    state: absent
+  with_items:
+    - cache
+    - data/store
+    - data/ldap/log
+    - logs
+    - tmp
