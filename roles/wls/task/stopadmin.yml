@@ -1,0 +1,19 @@
+- name: Stop AdminServer
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/bin/stopWebLogic.sh
+    owner: aprisma
+    group: aprisma
+    mode: "0777"
+
+- name: 
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopWebLogic.sh &'
+
+- name: Stop Nodemanager
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/bin/stopNodeManager.sh
+    owner: aprisma
+    group: aprisma
+    mode: "0777"
+
+- name: 
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopNodeManager.sh &'
