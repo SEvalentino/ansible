@@ -16,4 +16,4 @@
     mode: "0777"
 
 - name: 
-  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopNodeManager.sh > /aprisma/log/AdminServer.out  &'
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopNodeManager.sh > /aprisma/log/AdminServer.out &'
