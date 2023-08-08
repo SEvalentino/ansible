@@ -1,0 +1,32 @@
+- name: Menghapus log nohup
+  file:
+    path: "{{ item }}" 
+    state: absent
+  with_items:
+    - /aprisma/wls14/user_projects/domains/val-domain/bin/nohup.out
+
+- name: Menghapus cache server AdminServer
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/servers/AdminServer/{{ item }} 
+    state: absent
+  with_items:
+    - cache
+    - data/store
+    - logs
+    - tmp
+
+- name: Create directory log
+  file: 
+    path: /aprisma/log
+    state: directory
+    mode: "0755"
+
+- name: Start Nodemanager
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/bin/startNodeManager.sh
+    owner: aprisma
+    group: aprisma
+    mode: "0777"
+
+- name: 
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/startNodeManager.sh > /aprisma/log/nodemanager.out &'
