@@ -6,7 +6,7 @@
     mode: "0777"
 
 - name: 
-  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopWebLogic.sh &'
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopWebLogic.sh > /aprisma/log/nodemanager.out &'
 
 - name: Stop Nodemanager
   file:
@@ -16,4 +16,4 @@
     mode: "0777"
 
 - name: 
-  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopNodeManager.sh &'
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/stopNodeManager.sh > /aprisma/log/AdminServer.out  &'
