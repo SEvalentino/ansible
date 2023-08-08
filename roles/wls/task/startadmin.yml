@@ -3,7 +3,7 @@
     path: "{{ item }}" 
     state: absent
   with_items:
-    - /aprisma/wls14/user_projects/domains/val-domain/bin/nohup.out
+    - /aprisma/log
 
 - name: Menghapus cache server AdminServer
   file:
@@ -30,3 +30,15 @@
 
 - name: 
   shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/startNodeManager.sh > /aprisma/log/nodemanager.out &'
+
+- name: Start AdminServer
+  file:
+    path: /aprisma/wls14/user_projects/domains/val-domain/bin/startWebLogic.sh
+    owner: aprisma
+    group: aprisma
+    mode: "0777"
+
+- name: 
+  shell: 'nohup /aprisma/wls14/user_projects/domains/val-domain/bin/startWebLogic.sh > /aprisma/log/AdminServer.out &'
+
+
