@@ -1,7 +1,9 @@
 ---
 
 # Run command
-- name: Clear log
-  import_tasks: clearlog.yml
-- name: Change IP
-  import_tasks: changeip.yml
+#- name: Clear Log
+#  import_tasks: clearlog.yml
+#- name: Change Configuration
+#  import_tasks: changeip.yml
+- name: Start Admin Server 
+  import_tasks: startadmin.yml
