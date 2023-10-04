@@ -1,0 +1,9 @@
+---
+
+- name: Extend Logical Volume
+  become: true
+  command: "lvextend -L +2G /dev/vg_data/lv_data"
+
+- name: Resize the ext4 filesystem
+  become: true
+  command: "resize2fs /dev/vg_data/lv_data"
