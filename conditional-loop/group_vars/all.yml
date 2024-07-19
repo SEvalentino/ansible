@@ -1,0 +1,11 @@
+user_list:
+  - name: Valentino Ibrahim Admin
+    username: valentino
+    password: valentino
+    access: ALL
+    role: dbadmin
+  - name: Leornardo User
+    username: leo
+    password: leo
+    access: SELECT
+    role: dbuser
